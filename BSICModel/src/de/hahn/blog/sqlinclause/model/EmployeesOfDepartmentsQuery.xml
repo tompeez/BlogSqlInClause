@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeesOfDepartmentsQuery"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  SelectList="Employees.COMMISSION_PCT, 
+       Employees.DEPARTMENT_ID, 
+       Employees.EMAIL, 
+       Employees.EMPLOYEE_ID, 
+       Employees.FIRST_NAME, 
+       Employees.HIRE_DATE, 
+       Employees.JOB_ID, 
+       Employees.LAST_NAME, 
+       Employees.MANAGER_ID, 
+       Employees.PHONE_NUMBER, 
+       Employees.SALARY"
+  FromList="EMPLOYEES Employees"
+  Where="Employees.DEPARTMENT_ID IN (
+    SELECT regexp_substr(:pListOfValues,'[^,]+',1,level) FROM dual
+      CONNECT BY regexp_substr(:pListOfValues,'[^,]+',1,level) 
+        IS NOT NULL)"
+  OrderBy="Employees.DEPARTMENT_ID,Employees.LAST_NAME"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsQueryRowImpl"
+  ComponentClass="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsQueryImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsQuery_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pListOfValues"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="Employees"
+    Entity="de.hahn.blog.sqlinclause.model.Employees"/>
+  <ViewAttribute
+    Name="CommissionPct"
+    PrecisionRule="true"
+    EntityAttrName="CommissionPct"
+    EntityUsage="Employees"
+    AliasName="COMMISSION_PCT"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="Employees"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="Email"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="Employees"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="EmployeeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="Employees"
+    AliasName="EMPLOYEE_ID"/>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Employees"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="HireDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="HireDate"
+    EntityUsage="Employees"
+    AliasName="HIRE_DATE"/>
+  <ViewAttribute
+    Name="JobId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="Employees"
+    AliasName="JOB_ID"/>
+  <ViewAttribute
+    Name="LastName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="Employees"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="ManagerId"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="Employees"
+    AliasName="MANAGER_ID"/>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="Employees"
+    AliasName="PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="Salary"
+    PrecisionRule="true"
+    EntityAttrName="Salary"
+    EntityUsage="Employees"
+    AliasName="SALARY"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.hahn.blog.sqlinclause.model.BSICModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="queryWithVCPageDef"
+                Package="de.hahn.blog.sqlinclause.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesOfDepartmentsViewCriteria" RangeSize="25" DataControl="BSICAppModuleDataControl"
+              id="EmployeesOfDepartmentsViewCriteriaIterator"/>
+    <searchRegion Criteria="filterByEmployeesOfDepartments"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeesOfDepartmentsViewCriteriaIterator" id="filterByEmployeesOfDepartmentsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesOfDepartmentsViewCriteriaIterator" id="EmployeesOfDepartmentsViewCriteria">
+      <nodeDefinition DefName="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsViewCriteriaView"
+                      Name="EmployeesOfDepartmentsViewCriteria0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="DepartmentIdStr"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="Email"/>
+          <Item Value="JobId"/>
+          <Item Value="ManagerId"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="Salary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

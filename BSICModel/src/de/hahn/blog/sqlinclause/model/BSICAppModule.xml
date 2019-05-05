@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BSICAppModule"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesOfDepartmentsQuery"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsQuery"/>
+  <ViewUsage
+    Name="EmployeesOfDepartmentsViewCriteria"
+    ViewObjectName="de.hahn.blog.sqlinclause.model.EmployeesOfDepartmentsViewCriteriaView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="de.hahn.blog.sqlinclause.model.EmpManagerFkLink"
+    SrcViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.EmployeesView1"
+    DstViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="de.hahn.blog.sqlinclause.model.EmpDeptFkLink"
+    SrcViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.DepartmentsView1"
+    DstViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.EmployeesView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="de.hahn.blog.sqlinclause.model.DeptMgrFkLink"
+    SrcViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.EmployeesView1"
+    DstViewUsageName="de.hahn.blog.sqlinclause.model.BSICAppModule.DepartmentsView2"
+    Reversed="false"/>
+</AppModule>

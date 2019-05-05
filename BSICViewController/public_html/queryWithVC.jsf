@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="queryWithVC.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="SQL IN Clause in ViewCriteria" id="ot11"
+                                       inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelHeader text="Employees" id="ph1">
+                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.filterByEmployeesOfDepartmentsQuery.queryDescriptor}"
+                                          model="#{bindings.filterByEmployeesOfDepartmentsQuery.queryModel}"
+                                          queryListener="#{bindings.filterByEmployeesOfDepartmentsQuery.processQuery}"
+                                          queryOperationListener="#{bindings.filterByEmployeesOfDepartmentsQuery.processQueryOperation}"
+                                          resultComponentId="::resId1"/>
+                            </af:panelHeader>
+                            <af:table value="#{bindings.EmployeesOfDepartmentsViewCriteria.collectionModel}" var="row"
+                                      rows="#{bindings.EmployeesOfDepartmentsViewCriteria.rangeSize}"
+                                      emptyText="#{bindings.EmployeesOfDepartmentsViewCriteria.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.EmployeesOfDepartmentsViewCriteria.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.EmployeesOfDepartmentsViewCriteria.collectionModel.makeCurrent}"
+                                      rowSelection="single"
+                                      fetchSize="#{bindings.EmployeesOfDepartmentsViewCriteria.rangeSize}" id="resId1">
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.EmployeeId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.EmployeeId.label}"
+                                           id="resId1c1">
+                                    <af:outputText value="#{row.EmployeeId}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.EmployeeId.tooltip}"
+                                                   id="ot1">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.EmployeeId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.DepartmentIdStr.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.DepartmentIdStr.label}"
+                                           id="resId1c2">
+                                    <af:outputText value="#{row.DepartmentIdStr}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.DepartmentIdStr.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.LastName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.LastName.label}"
+                                           id="resId1c3">
+                                    <af:outputText value="#{row.LastName}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.LastName.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.FirstName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.FirstName.label}"
+                                           id="resId1c4">
+                                    <af:outputText value="#{row.FirstName}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.FirstName.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Email.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Email.label}"
+                                           id="resId1c5">
+                                    <af:outputText value="#{row.Email}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Email.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.JobId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.JobId.label}"
+                                           id="resId1c6">
+                                    <af:outputText value="#{row.JobId}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.JobId.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.ManagerId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.ManagerId.label}"
+                                           id="resId1c7">
+                                    <af:outputText value="#{row.ManagerId}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.ManagerId.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.ManagerId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.PhoneNumber.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.PhoneNumber.label}"
+                                           id="resId1c8">
+                                    <af:outputText value="#{row.PhoneNumber}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.PhoneNumber.tooltip}"
+                                                   id="ot8"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Salary.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Salary.label}"
+                                           id="resId1c9">
+                                    <af:outputText value="#{row.Salary}"
+                                                   shortDesc="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Salary.tooltip}"
+                                                   id="ot9">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesOfDepartmentsViewCriteria.hints.Salary.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

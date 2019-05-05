@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="de.hahn.blog.sqlinclause.model.BSICAppModule">
+    <AppModuleConfig name="BSICAppModuleLocal" jbo.project="de.hahn.blog.sqlinclause.model.BSICModel"
+                     ApplicationName="de.hahn.blog.sqlinclause.model.BSICAppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HR_XEDS"/>
+      <Security AppModuleJndiName="de.hahn.blog.sqlinclause.model.BSICAppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="BSICAppModuleShared" jbo.project="de.hahn.blog.sqlinclause.model.BSICModel"
+                     ApplicationName="de.hahn.blog.sqlinclause.model.BSICAppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HR_XEDS"/>
+      <Security AppModuleJndiName="de.hahn.blog.sqlinclause.model.BSICAppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>
